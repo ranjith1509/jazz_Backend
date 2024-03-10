@@ -3,24 +3,24 @@ const router = express.Router();
 const adminController = require("../controllers/adminRegister"); // Make sure the path is correct
 
 // Endpoint for admin registration
-router.post("/api/", adminController.registerAdmin);
+router.post("/", adminController.registerAdmin);
 
 // Endpoint for get all admin
-router.get("/api/", adminController.getAllAdmin);
+router.get("/", adminController.getAllAdmin);
 
 // Route to get a specific user by ID
-router.get("/api/:id", adminController.getAdminById);
+router.get("/:id", adminController.getAdminById);
 
 // Route to update a user by ID
-router.put("/api/:id", adminController.updateAdminById);
+router.put("/:id", adminController.updateAdminById);
 
 // Endpoint to delete admin
-router.delete("/api/:id", adminController.deleteAdminById);
+router.delete("/:id", adminController.deleteAdminById);
 
 // Endpoint for admin login
-router.post("/api/login", adminController.loginAdmin);
+router.post("/login", adminController.loginAdmin);
 
 // Endpoint for admin logout
-router.post("/api/logout/:id", adminController.logoutAdmin);
+router.post("/logout/:id", adminController.logoutAdmin);
 
 module.exports = router;
