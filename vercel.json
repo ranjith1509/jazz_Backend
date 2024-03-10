@@ -1,0 +1,14 @@
+{
+    "version": 2,
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "/api$1",
+        "methods": ["GET", "PUT", "POST", "DELETE", "PATCH", "OPTIONS"],
+        "headers": {
+          "Access-Control-Allow-Origin": "*"
+        }
+      }
+    ]
+  }
+  
