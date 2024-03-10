@@ -1,7 +1,6 @@
 {
     "version": 2,
-    
-    "rewrites": [
+    "routes": [
       {
         "src": "/(.*)",
         "dest": "/api$1",
