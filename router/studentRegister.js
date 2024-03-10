@@ -11,21 +11,21 @@ var upload = multer({ storage });
 const userController = require("../controllers/studentRegister");
 
 // Route to create a new user
-router.post("/", userController.createUser);
+router.post("/api/", userController.createUser);
 
 // Route to get all users
-router.get("/", userController.getAllUsers);
+router.get("/api/", userController.getAllUsers);
 
 // Route to get a specific user by ID
-router.get("/:id", userController.getUserById);
+router.get("/api/:id", userController.getUserById);
 
 // Route to update a user by ID
-router.put("/:id", userController.updateUserById);
+router.put("/api/:id", userController.updateUserById);
 
 // Route to delete a user by ID
-router.delete("/:id", userController.deleteUserById);
+router.delete("/api/:id", userController.deleteUserById);
 
 // Route to xlxs file import
-router.post("/file_import", upload.single("file"), userController.xlsxImport);
+router.post("/api/file_import", upload.single("file"), userController.xlsxImport);
 
 module.exports = router;
