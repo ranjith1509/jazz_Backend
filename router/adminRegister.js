@@ -18,7 +18,7 @@ router.put("/:id", adminController.updateAdminById);
 router.delete("/:id", adminController.deleteAdminById);
 
 // Endpoint for admin login
-router.post("/login", adminController.loginAdmin);
+// router.post("/login", adminController.loginAdmin);
 
 // Endpoint for admin logout
 router.post("/logout/:id", adminController.logoutAdmin);

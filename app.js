@@ -4,6 +4,9 @@ const cors = require("cors"); // Import the cors middleware
 const userRouter = require( "./router/studentRegister");
 const announcementRouter = require("./router/announcement");
 const adminRegister = require("./router/adminRegister");
+const adminController = require("./controllers/adminRegister"); // Make sure the path is correct
+const router = express.Router();
+
 
 
 require("dotenv").config();
@@ -44,6 +47,9 @@ app.get("/", (req, res) => {
 app.use("/users", userRouter);
 app.use("/announcement", announcementRouter);
 app.use("/admin", adminRegister);
+
+router.post("/login", adminController.loginAdmin);
+
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
