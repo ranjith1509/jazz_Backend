@@ -1,10 +1,9 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors"); // Import the cors middleware
-const userRouter = require("../router/studentRegister");
-const announcementRouter = require("../router/announcement");
-const adminRegister = require("../router/adminRegister");
-const serverless = require('serverless-http')
+const userRouter = require("./router/studentRegister");
+const announcementRouter = require("./router/announcement");
+const adminRegister = require("./router/adminRegister");
 
 
 require("dotenv").config();
@@ -36,10 +35,9 @@ app.get("/", (req, res) => {
 
 
 // Use the userRouter for all routes starting with /users
-app.use("/.netlify/functions/api/users", userRouter);
-app.use("/.netlify/functions/api/announcement", announcementRouter);
-app.use("/.netlify/functions/api/admin", adminRegister);
-module.exports.handler = serverless(app)
+app.use("/users", userRouter);
+app.use("/announcement", announcementRouter);
+app.use("/admin", adminRegister);
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
