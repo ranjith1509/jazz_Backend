@@ -29,6 +29,12 @@ app.use(express.json());
 
 // Use the cors middleware to enable CORS
 app.use(cors());
+app.use(cors({
+  origin: ["https://jazz-frontend.vercel.app"],
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  credentials: true,
+}));
+
 app.get("/", (req, res) => {
   res.send("Hello, World jazzs!");
 });
