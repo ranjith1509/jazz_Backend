@@ -1,8 +1,8 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors"); // Import the cors middleware
-const userRouter = require("../router/studentRegister");
-const announcementRouter = require("../router/announcement");
+const userRouter = require("./router/studentRegister");
+const announcementRouter = require("./router");
 const adminRegister = require("./router/adminRegister");
 
 
