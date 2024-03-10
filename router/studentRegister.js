@@ -11,21 +11,21 @@ var upload = multer({ storage });
 const userController = require("../controllers/studentRegister");
 
 // Route to create a new user
-router.post("/", userController.createUser);
+router.post("https://jazz-backend-six.vercel.app/", userController.createUser);
 
 // Route to get all users
-router.get("/", userController.getAllUsers);
+router.get("https://jazz-backend-six.vercel.app/", userController.getAllUsers);
 
 // Route to get a specific user by ID
-router.get("/:id", userController.getUserById);
+router.get("https://jazz-backend-six.vercel.app/:id", userController.getUserById);
 
 // Route to update a user by ID
-router.put("/:id", userController.updateUserById);
+router.put("https://jazz-backend-six.vercel.app/:id", userController.updateUserById);
 
 // Route to delete a user by ID
-router.delete("/:id", userController.deleteUserById);
+router.delete("https://jazz-backend-six.vercel.app/:id", userController.deleteUserById);
 
 // Route to xlxs file import
-router.post("/file_import", upload.single("file"), userController.xlsxImport);
+router.post("https://jazz-backend-six.vercel.app/file_import", upload.single("file"), userController.xlsxImport);
 
 module.exports = router;
