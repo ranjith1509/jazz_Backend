@@ -29,6 +29,10 @@ app.use(express.json());
 
 // Use the cors middleware to enable CORS
 app.use(cors());
+app.get("/", (req, res) => {
+  res.send("Hello, World!");
+});
+
 
 // Use the userRouter for all routes starting with /users
 app.use("/users", userRouter);
