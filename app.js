@@ -1,6 +1,5 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const cors = require("cors"); // Import the cors middleware
 const userRouter = require("./router/studentRegister");
 const announcementRouter = require("./router/announcement");
 const adminRegister = require("./router/adminRegister");
@@ -28,9 +27,8 @@ db.once("open", () => {
 app.use(express.json());
 
 // Use the cors middleware to enable CORS
-app.use(cors());
 app.get("/", (req, res) => {
-  res.send("Hello, World!");
+  res.send("Hello, World jazz!");
 });
 
 
