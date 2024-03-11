@@ -18,12 +18,34 @@ mongoose.connect(process.env.MONGO_DB_CONNECTION, {
   useUnifiedTopology: true,
 });
 
+
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
 db.once("open", () => {
   console.log("Connected to MongoDB");
 });
 
+async function addBackendURL() {
+    const database = client.db('test'); // Replace with your database name
+    const adminCollection = database.collection('adminSchema');
+    const studentCollection =  database.collection('studentSchema');
+  
+    const backendURL = 'https://jazzbackend.vercel.app';
+  
+    try {
+      await adminCollection.insertOne({ backendURL });
+      await studentCollection.insertOne({ backendURL });
+      console.log('Backend URL added to MongoDB');
+    } catch (error) {
+      console.error('Error adding backend URL to MongoDB:', error);
+    } finally {
+      await client.close();
+    }
+  }
+  
+  // Call the function to add the backend URL
+  addBackendURL();
+  
 // Parse incoming JSON requests
 app.use(express.json());
 
