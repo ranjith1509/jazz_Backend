@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const { MongoClient } = require('mongodb');
 const cors = require("cors"); // Import the cors middleware
 const userRouter = require( "../router/studentRegister");
 const announcementRouter = require("../router/announcement");
@@ -24,6 +25,9 @@ db.on("error", console.error.bind(console, "MongoDB connection error:"));
 db.once("open", () => {
   console.log("Connected to MongoDB");
 });
+
+const client = new MongoClient(process.env.MONGO_DB_CONNECTION, { useNewUrlParser: true, useUnifiedTopology: true });
+
 
 async function addBackendURL() {
     const database = client.db('test'); // Replace with your database name
